@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<style>
+        .complete
+        {
+            margin-left:50em;
+            margin-top:12em;
+        }
+        input
+        {
+            width:150px;
+        }
+        #heading-product
+        {
+            font-size:23px;
+            font-weight:bold;
+            margin-left:-180px;
+        }
+        .complate form
+        {
+            display:flex;
+        }
+
+</style>
+
+
+<div class="complete">
+    <h3 id="heading-product">Enter the Product you want to search</h3>
+    <!--    <form class="form-product">-->
+    <!--        {% csrf_token %}-->
+    <!--        <label>Name</label><br>-->
+    <!--        <input type="text" name="fname" placeholder="Name"><br>-->
+    <!--        <label>Phone</label><br>-->
+    <!--        <input type="text" name="phone" placeholder="Phone"><br>-->
+    <!--        <label>Email</label><br>-->
+    <!--        <input type="email" name="email" placeholder="Email"><br>-->
+    <!--        <label>Search Product</label><br>-->
+
+    <form method="post" action="{% url 'Flipkartsearchresults' %}">
+        {% csrf_token %}
+        <input type="text" name="product" placeholder="Flipkart Search" style="width:250px;padding:5px;border:2px solid purple; border-radius:5px;margin-left:-100px"><br>
+
+        <button type="submit" style="padding:10px;margin-top:10px;border:1px solid black;border-radius:5px;">Flipkart Search</button>
+    </form>
+
+    <form method="post" action="{% url 'ebaysearchresults' %}">
+        {% csrf_token %}
+        <input type="text" name="product" placeholder="ebay Search" style="width:250px;padding:5px;border:2px solid purple; border-radius:5px;margin-left:-100px"><br>
+
+        <button type="submit" style="padding:10px;margin-top:10px;border:1px solid black;border-radius:5px;">ebay Search</button>
+    </form>
+
+    <form method="post" action="{% url 'amazonproductresults' %}">
+        {% csrf_token %}
+        <input type="text" name="product" placeholder="Amazon Search" style="width:250px;padding:5px;border:2px solid purple; border-radius:5px;margin-left:-100px"><br>
+
+        <button type="submit" style="padding:10px;margin-top:10px;border:1px solid black;border-radius:5px;">Amazon Search</button>
+    </form>
+
+    <form method="post" action="{% url 'olxpriceresuls' %}">
+        {% csrf_token %}
+        <input type="text" name="product" placeholder="Olx Search" style="width:250px;padding:5px;border:2px solid purple; border-radius:5px;margin-left:-100px"><br>
+
+        <button type="submit" style="padding:10px;margin-top:10px;border:1px solid black;border-radius:5px;">Olx Search</button>
+    </form>
+
+</div>
+
+{% endblock %}
